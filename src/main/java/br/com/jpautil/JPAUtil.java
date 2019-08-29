@@ -29,4 +29,10 @@ public class JPAUtil {
 		return factory.createEntityManager(); /*Prove a parte de persistência*/
 	}
 	
+	
+	public static Object getPrimaryKey(Object entity) {
+		// PEGA O PRIMARY KEY DA ENTIDADE
+		return factory.getPersistenceUnitUtil().getIdentifier(entity);
+		
+	}
 }
