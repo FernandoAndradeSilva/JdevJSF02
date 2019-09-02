@@ -20,14 +20,47 @@ public class Pessoa implements Serializable{
 	private String nome;	
 	private String sobrenome;	
 	private Integer idade;	
+	private Boolean ativo;
+	
+	private String login;
+	private String senha;
+	private String perfilUser;
 	
 	private String [] frameworks;
+	
+	
 	
 	@Temporal(TemporalType.DATE)
 	private Date dataNascimento;
 	
 	private String sexo;
 	
+	
+	
+	public String getPerfilUser() {
+		return perfilUser;
+	}
+
+	public void setPerfilUser(String perfilUser) {
+		this.perfilUser = perfilUser;
+	}
+
+	public String getLogin() {
+		return login;
+	}
+
+	public void setLogin(String login) {
+		this.login = login;
+	}
+
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+
 	public Pessoa() {
 		super();
 		
@@ -43,6 +76,14 @@ public class Pessoa implements Serializable{
 	
 	
 	
+	public Boolean getAtivo() {
+		return ativo;
+	}
+
+	public void setAtivo(Boolean ativo) {
+		this.ativo = ativo;
+	}
+
 	public String[] getFrameworks() {
 		return frameworks;
 	}
