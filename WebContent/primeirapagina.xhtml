@@ -35,8 +35,7 @@
 			<h:inputText value="#{pessoaBean.pessoa.idade}" />
 
 			<h:outputLabel value="Sexo:" />
-			<h:selectOneMenu id="campoSexo" value="#{pessoaBean.pessoa.sexo}"
-				>
+			<h:selectOneMenu id="campoSexo" value="#{pessoaBean.pessoa.sexo}">
 				<f:selectItem itemLabel="[-Selecione-]" itemValue="N"
 					noSelectionOption="true"></f:selectItem>
 				<f:selectItem itemValue="M" itemLabel="Masculino" />
@@ -45,8 +44,7 @@
 
 			<h:outputLabel value="Frameworks" />
 			<h:selectManyMenu id="campoFrameworks" style="height:150px"
-			value="#{pessoaBean.pessoa.frameworks}"
-				>				
+				value="#{pessoaBean.pessoa.frameworks}">
 				<f:selectItem itemValue="Hibernate" />
 				<f:selectItem itemValue="Spring MVC" />
 				<f:selectItem itemValue="JPA" />
@@ -54,32 +52,41 @@
 				<f:selectItem itemValue="JSF" />
 			</h:selectManyMenu>
 
-			<h:outputLabel value="Ativo:"/>
-				<h:selectBooleanCheckbox value="#{pessoaBean.pessoa.ativo}"/>
-			
-			<h:outputLabel value="Login"/>
-			<h:inputText value="#{pessoaBean.pessoa.login}"/>
-			
-			
-			<h:outputLabel value="Senha"/>
-			<h:inputSecret value="#{pessoaBean.pessoa.senha}"/>
-			
-			<h:outputLabel  value="Perfil"/>
-			<h:selectOneMenu id="campoPerfil" value="#{pessoaBean.pessoa.perfilUser}">
+			<h:outputLabel value="Ativo:" />
+			<h:selectBooleanCheckbox value="#{pessoaBean.pessoa.ativo}" />
+
+			<h:outputLabel value="Login" />
+			<h:inputText value="#{pessoaBean.pessoa.login}" />
+
+
+			<h:outputLabel value="Senha" />
+			<h:inputSecret value="#{pessoaBean.pessoa.senha}" />
+
+			<h:outputLabel value="Perfil" />
+			<h:selectOneMenu id="campoPerfil"
+				value="#{pessoaBean.pessoa.perfilUser}">
 				<f:selectItem itemLabel="[-Selecione-]" itemValue="N"
 					noSelectionOption="true"></f:selectItem>
 				<f:selectItem itemValue="ADMINISTRADOR" itemLabel="Administrador" />
 				<f:selectItem itemValue="SECRETARIO" itemLabel="Secretário" />
 				<f:selectItem itemValue="RECEPCIONISTA" itemLabel="Recepcionista" />
 			</h:selectOneMenu>
-			
+
 
 			<h:outputLabel />
 			<h:panelGroup>
-				<h:commandButton value="Novo" action="#{pessoaBean.novo}" image="/resources/img/addUser.png" title="NOVO"/>
-				<h:commandButton value="Salvar" action="#{pessoaBean.salvar}" image="/resources/img/save.png" title="SALVAR"/>
-				<h:commandButton value="Remover" action="#{pessoaBean.remove}" />
-				<h:commandButton value="Limpar" type="reset"></h:commandButton>
+				<h:commandButton value="Novo" action="#{pessoaBean.novo}"
+					image="/resources/img/addUser.png" title="NOVO" />
+				<h:commandButton style="margin-left:1cm;" 
+					value="Salvar" action="#{pessoaBean.salvar}"
+					image="/resources/img/save.png" title="SALVAR" />
+				<h:commandButton style="margin-left:1cm;"
+					 value="Remover" action="#{pessoaBean.remove}" 
+					rendered="#{pessoaBean.permiteAcesso('ADMINISTRADOR')}"
+					image="/resources/img/remove.png" title="REMOVER"/>
+				<h:commandButton style="margin-left:1cm;" 
+					value="Limpar" type="reset" 
+					image="/resources/img/broom.png" title="LIMPAR"/>
 			</h:panelGroup>
 
 		</h:panelGrid>
@@ -107,26 +114,28 @@
 				<h:outputText value="#{pessoa.sobrenome}" />
 			</h:column>
 
-			<h:column>
+			<h:column >
 				<f:facet name="header">AÇÃO</f:facet>
 				<h:commandLink title="EDITAR">
 					<f:setPropertyActionListener value="#{pessoa}"
 						target="#{pessoaBean.pessoa}" />
-					<h:graphicImage library="img" name="edit.png"/>	
-				</h:commandLink>
-
-				<h:outputLabel value=" "></h:outputLabel>
-
-				<h:commandLink action="#{pessoaBean.remove}" title="EXCLUIR" >
-					<f:setPropertyActionListener value="#{pessoa}"
-						target="#{pessoaBean.pessoa}" />
-					<h:graphicImage library="img" name="excluir.png"/>	
+					<h:graphicImage library="img" name="edit.png" />
 				</h:commandLink>
 
 			</h:column>
-			
-			
-			
+
+			<h:column rendered="#{pessoaBean.permiteAcesso('ADMINISTRADOR')}">
+				<f:facet name="header">AÇÃO</f:facet>
+				<h:commandLink action="#{pessoaBean.remove}" title="EXCLUIR">
+					<f:setPropertyActionListener value="#{pessoa}"
+						target="#{pessoaBean.pessoa}" />
+					<h:graphicImage library="img" name="excluir.png" />
+				</h:commandLink>
+
+			</h:column>
+
+
+
 
 
 		</h:dataTable>
