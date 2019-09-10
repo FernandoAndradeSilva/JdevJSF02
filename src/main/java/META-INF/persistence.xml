@@ -9,6 +9,7 @@
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		
 		<class>br.com.entidades.Pessoa</class>
+		<class>br.com.entidades.Lancamento</class>
 	
 		<properties>			
 			<property name="hibernate.connection.driver_class" value="org.postgresql.Driver"/>
