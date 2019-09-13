@@ -1,19 +1,47 @@
 <?xml version="1.0" encoding="ISO-8859-1" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
 
 <h:head>
-	<title>Login</title>
+	<title>Lancamentos</title>
 
 </h:head>
 
 <h:body>
 
+	<h:form>
+		<h:commandLink value="Administração" action="primeirapagina"></h:commandLink>
+		<h:commandLink value="Lancamentos"
+			action="lancamento?faces-redirect=true" style="margin-left:1cm"></h:commandLink>
+		<h:commandLink value="Trocar Usuário" style="margin-left:1cm"
+			action="index"></h:commandLink>
+	</h:form>
+
 
 	<h:form id="formLancamento" style="margin-top:22%; margin-left:40%;">
 
-		
+		<h:form>
+			<h:panelGrid columns="2">
+				<f:facet name="header">
+					<h:outputText value="Lancamentos" />
+
+				</f:facet>
+
+
+				<h:outputLabel value="ID" />
+				<h:inputText value="#{lancamentoBean.lancamento.id}" readonly="true" />
+
+				<h:outputLabel value="Nota" />
+				<h:inputText value="#{lancamentoBean.lancamento.id}"  />
+
+
+
+			</h:panelGrid>
+
+
+		</h:form>
 
 
 	</h:form>
