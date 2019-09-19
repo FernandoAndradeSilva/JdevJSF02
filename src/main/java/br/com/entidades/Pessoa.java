@@ -28,7 +28,7 @@ public class Pessoa implements Serializable{
 	
 	private String [] frameworks;
 	
-	
+	private String sexoRadio;
 	
 	@Temporal(TemporalType.DATE)
 	private Date dataNascimento;
@@ -138,6 +138,16 @@ public class Pessoa implements Serializable{
 
 	public void setDataNascimento(Date dataNascimento) {
 		this.dataNascimento = dataNascimento;
+	}
+	
+	
+	
+	public String getSexoRadio() {
+		return sexoRadio;
+	}
+
+	public void setSexoRadio(String sexoRadio) {
+		this.sexoRadio = sexoRadio;
 	}
 
 	@Override
